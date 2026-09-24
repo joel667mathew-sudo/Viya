@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Hubby ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef5);
+}
+
+/* ---------- TITLE ---------- */
+
+.title {
+    position: fixed;
+    top: 25px;
+    width: 100%;
+    text-align: center;
+    color: #c2185b;
+    font-size: 26px;
+    font-weight: bold;
+    z-index: 20;
+}
+
+.subtitle {
+    position: fixed;
+    top: 62px;
+    width: 100%;
+    text-align: center;
+    color: #8e3154;
+    font-size: 15px;
+    z-index: 20;
+}
+
+/* ---------- WORLD ---------- */
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ---------- GIRL ---------- */
+
+.girl {
+    position: absolute;
+    left: 8%;
+    bottom: 15%;
+    width: 110px;
+    height: 190px;
+    z-index: 10;
+
+    animation:
+        walkToHeart 5s forwards,
+        cuddle 2s 7s forwards,
+        takeHeart 3s 9s forwards;
+}
+
+/* Face */
+
+.face {
+    position: absolute;
+    top: 0;
+    left: 15px;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background-image: url("me.jpg");
+    background-size: cover;
+    background-position: center;
+
+    border: 4px solid white;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+}
+
+/* Body */
+
+.body {
+    position: absolute;
+    top: 78px;
+    left: 25px;
+
+    width: 60px;
+    height: 75px;
+
+    background: #ff9fc4;
+    border-radius: 25px 25px 12px 12px;
+}
+
+/* Arms */
+
+.arm {
+    position: absolute;
+    width: 55px;
+    height: 13px;
+
+    background: #ffd0b8;
+    border-radius: 20px;
+
+    top: 95px;
+}
+
+.arm.left {
+    left: -10px;
+    transform: rotate(25deg);
+}
+
+.arm.right {
+    right: -10px;
+    transform: rotate(-25deg);
+}
+
+/* Legs */
+
+.leg {
+    position: absolute;
+    width: 15px;
+    height: 65px;
+
+    background: #ffd0b8;
+    border-radius: 15px;
+
+    top: 140px;
+}
+
+.leg.left {
+    left: 32px;
+}
+
+.leg.right {
+    left: 58px;
+}
+
+/* ---------- HEART ---------- */
+
+.heart-area {
+    position: absolute;
+    left: 55%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+}
+
+.heart {
+    width: 125px;
+    height: 125px;
+    position: relative;
+
+    transform: rotate(-45deg);
+
+    background: #ff4f81;
+
+    animation:
+        heartbeat 1.2s infinite,
+        heartMove 5s forwards;
+
+    box-shadow: 0 8px 25px rgba(255, 60, 120, .35);
+}
+
+/* heart shape */
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    background: #ff4f81;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -62px;
+    left: 0;
+}
+
+.heart::after {
+    left: 62px;
+    top: 0;
+}
+
+/* Text */
+
+.heart-text {
+    position: absolute;
+
+    top: 42px;
+    left: -2px;
+
+    width: 130px;
+
+    z-index: 10;
+
+    transform: rotate(45deg);
+
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+
+    pointer-events: none;
+}
+
+/* ---------- ACTION TEXT ---------- */
+
+.message {
+    position: absolute;
+
+    bottom: 8%;
+    width: 100%;
+
+    text-align: center;
+
+    color: #a4144e;
+    font-size: 20px;
+    font-weight: bold;
+
+    opacity: 0;
+
+    animation: message1 3s 4s forwards;
+}
+
+/* ---------- KISS ---------- */
+
+.kiss {
+    position: absolute;
+    font-size: 42px;
+
+    left: 50%;
+    top: 38%;
+
+    opacity: 0;
+
+    z-index: 30;
+
+    animation: kiss 2s 11s forwards;
+}
+
+/* ---------- HEART INSIDE CHEST ---------- */
+
+.love-inside {
+    position: absolute;
+
+    left: 50%;
+    top: 95px;
+
+    transform: translateX(-50%) scale(0);
+
+    font-size: 28px;
+
+    opacity: 0;
+
+    z-index: 15;
+
+    animation: heartInside 2s 11s forwards;
+}
+
+/* ---------- FLOATING HEARTS ---------- */
+
+.floating {
+    position: absolute;
+
+    font-size: 20px;
+
+    animation: floatUp 4s linear infinite;
+
+    opacity: .8;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes walkToHeart {
+
+    0% {
+        left: 8%;
+        transform: scale(1);
+    }
+
+    100% {
+        left: 44%;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartMove {
+
+    0% {
+        transform: rotate(-45deg) scale(1);
+    }
+
+    100% {
+        transform: rotate(-45deg) scale(1.08);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.2);
+    }
+}
+
+@keyframes cuddle {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(-4deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes takeHeart {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes message1 {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes heartInside {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes kiss {
+
+    0% {
+        opacity: 0;
+        transform: scale(.2);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.8) translateY(-30px);
+    }
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(100vh) scale(.5);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px) {
+
+    .title {
+        font-size: 22px;
+    }
+
+    .girl {
+        left: 4%;
+        transform: scale(.85);
+    }
+
+    .heart-area {
+        left: 58%;
+    }
+
+    .heart {
+        width: 105px;
+        height: 105px;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 105px;
+        height: 105px;
+    }
+
+    .heart::before {
+        top: -52px;
+    }
+
+    .heart::after {
+        left: 52px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="title">
+    A Little Surprise For My Hubby 🤭❤️
+</div>
+
+<div class="subtitle">
+    Don't blink... something precious is waiting for you 😌
+</div>
+
+<div class="scene">
+
+    <!-- GIRL -->
+
+    <div class="girl">
+
+        <div class="face"></div>
+
+        <div class="body"></div>
+
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+
+        <!-- Heart placed inside chest -->
+
+        <div class="love-inside">
+            ❤️
+        </div>
+
+    </div>
+
+
+    <!-- HUBBY HEART -->
+
+    <div class="heart-area">
+
+        <div class="heart">
+
+            <div class="heart-text">
+                HUBBY ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div class="message">
+        Found my hubby! 🥺❤️<br>
+        Come here... let me pamper you 😌
+    </div>
+
+
+    <!-- KISS -->
+
+    <div class="kiss">
+        💋❤️
+    </div>
+
+
+    <!-- FLOATING HEARTS -->
+
+    <div class="floating" style="left:10%;animation-delay:0s;">❤️</div>
+    <div class="floating" style="left:25%;animation-delay:1s;">💕</div>
+    <div class="floating" style="left:70%;animation-delay:2s;">💗</div>
+    <div class="floating" style="left:85%;animation-delay:3s;">💖</div>
+    <div class="floating" style="left:45%;animation-delay:1.5s;">💘</div>
+
+</div>
+
+</body>
+  </html>
